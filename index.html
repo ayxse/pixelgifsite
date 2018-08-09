@@ -9,6 +9,35 @@
   <title></title>
 
 </head><script>
+  
+    function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('clock').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+msg="xxx "
+msg = " xxx" + msg;position = 0;
+function scrolltitle() {
+document.title = msg.substring(position, msg.length) + msg.substring(0, position); position++;
+if (position > msg.length) position = 0
+window.setTimeout("scrolltitle()",200);
+}
+scrolltitle();
+$(document).keydown(function(e){
+    if(e.which === 123){
+       return false;
+    }
+});
 
 <script type="text/javascript">
 __wbhack.init('https://web.archive.org/web');
